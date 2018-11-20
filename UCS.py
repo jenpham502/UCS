@@ -62,10 +62,14 @@ elif res in ['B', 'b']:
         elif get_str(struct.Top[i],lith) == 'EH':
             A1 = 15
             print (A1)
-
+		
+df = pd.DataFrame({'A1':[A1]})
+		
+		
 # Write result back to Excel
 writer = pd.ExcelWriter('output.xlsx', engine='xlsxwriter')
 struct.to_excel(writer, index=False, sheet_name = 'Sheet1', columns=['Defect Number','Type'])
+df.to_excel(writer, index=False, sheet_name = 'Sheet1', startcol=6)
 writer.save()			
 
 
