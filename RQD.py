@@ -1,4 +1,3 @@
-# Strength of intact rock material (A1)
 import pandas as pd
 import numpy as np
 from pandas import ExcelWriter
@@ -7,9 +6,8 @@ lith = pd.read_excel("Lithology_Field Logging Sheet.xlsx", header=None, skiprows
 
 ##Structural Features Logging Sheet (v.5-no merged column, use column headers)
 struct = pd.read_excel("Structural Features_Field Logging Sheet.xlsx", header=None, skiprows=8, usecols = "A:Q", names = ['Defect','Type','RHS','Top','LHS','Separation','Roughness','Planarity','Period','Undulation','Angle','Alteration','Material','Area','Shade','Colour','Moisture'])
+
 #Difference between Distance to Top of defect
-
-
 def cal_spacing():
     for i in range (0,len(struct)):
         spacing = (struct['Top'] - struct['Top'].shift(1))*1000
